@@ -1,0 +1,59 @@
+# Example 10- Groupimg
+
+PEOPLE = [
+    # Given Name, Family Name, City, Phone Number
+    ["Kaylee",  "Johnson", "Berea", "859-280-1180"],
+    ["Demetri", "Petrov",  "Cadiz", "364-473-1345"],
+    ["Maria",   "Morales", "Union", "859-642-7134"],
+    ["Yuseong", "Kim",     "Berea", "859-314-6438"],
+    ["Kwame",   "Abdi",    "Berea", "859-280-2183"],
+    ["Raj",     "Singh",   "Cadiz", "364-473-0820"],
+    ["Aisha",   "Hall",    "Union", "859-652-2108"],
+    ["Fatima",  "Cruz",    "Berea", "859-315-5910"]
+]
+
+
+def group_people_by_city(people_list):
+    """
+    Return a compound list of the cities and
+    the people who live in those cities.
+    """
+
+    # Create an empty dictionary to store the cities.
+    cities_dict = {}
+
+    # Unpack the data about each person.
+    for given, family, city, phone in people_list:
+
+        if city not in cities_dict:
+            # The city of the current person is NOT in the
+            # dictionary, which means this is the first person
+            # in the people_list who lives in that city. Put
+            # the city and an empty list in the dictionary.
+            people_in_city_list = []
+            cities_dict[city] = people_in_city_list
+
+        else:
+            # The city of the current person is in the
+            # dictionary so get the city's compound list.
+            people_in_city_list = cities_dict[city]
+
+        # Add the current person to the city's compound list.
+        people_in_city_list.append( [given, family, city, phone] )
+
+    # Return a compound list of cities and
+    # the people who live in those cities.
+    return cities_dict.items()
+
+
+def main():
+    people_grouped_by_city = group_people_by_city(PEOPLE)
+    for city, residents_list in people_grouped_by_city:
+        print(city)
+        for given, family, _, phone in residents_list:
+            print(f"    {given} {family} {phone}")
+
+
+# Call main to start this program.
+if __name__ == "__main__":
+    main()

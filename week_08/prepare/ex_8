@@ -1,0 +1,60 @@
+# Example 8
+#Finding
+
+def main():
+    tasks_dict = {
+        "A": add_goal,
+        "R": record_event,
+        "D": display_goals,
+        "S": save_goals,
+        "L": load_goals
+    }
+    goals_list = []
+
+    choice = ""
+    while choice != "Q":
+        print("Possible Commands:",
+            "[A]dd a new goal",
+            "[R]ecord an event",
+            "[D]isplay all goals",
+            "[S]ave all goals",
+            "[L]oad goals",
+            "[Q]uit", sep="\n  ");
+        choice = input("What would you like to do? ")
+        choice = choice.upper()[0]
+
+        if choice in tasks_dict:
+            # From the tasks dictionary, get
+            # the function that corresponds to
+            # the task that the user chose.
+            function = tasks_dict[choice]
+
+            # Call the function that will complete
+            # the task chosen by the user.
+            function(goals_list)
+
+        elif choice != "Q":
+            print(f"\n{choice} is not a valid task.")
+            possible = ", ".join(tasks_dict.keys())
+            print(f"Please choose {possible}, or Q\n")
+
+
+def add_goal(goals_list):
+    print("\nWrite code here to add a goal.\n")
+
+def record_event(goals_list):
+    print("\nWrite code here to record achieving a goal.\n")
+
+def display_goals(goals_list):
+    print("\nWrite code here to display all the goals.\n")
+
+def save_goals(goals_list):
+    print("\nWrite code here to save the goals to a file.\n")
+
+def load_goals(goals_list):
+    print("\nWrite code here to load goals from a file.\n")
+
+
+# Call main to start this program.
+if __name__ == "__main__":
+    main()
