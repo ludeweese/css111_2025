@@ -1,6 +1,3 @@
-#Lucilene DeWeese
-#Prove Assignment week 07
-
 # Lucilene DeWeese
 # Prove Assignment Week 07
 # chemistry.py - Creates a periodic table and prints element names and atomic masses
@@ -125,5 +122,4 @@ def main():
         print(element[1], element[2])
 
 # Protect the main function to prevent automatic execution when imported
-if __name__ == "__main__":
-    main()
+if __name__ == "__main__":    main()
